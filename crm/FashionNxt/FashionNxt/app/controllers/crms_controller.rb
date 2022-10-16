@@ -1,0 +1,2 @@
+class CrmsController < ApplicationController
+end
