@@ -24,36 +24,36 @@ Things you may want to cover:
 * ...
 
 
-Use following commands:
-#### First Time only
-gem install rails
-rails FashionNxt
-rails new FashionNxt
-cd FashionNxt
+yarn add @rails/webpacker\nbundle update webpacker
+rm -rf bin/webpack*
 
-gem install sqlite3-ruby
+bundle exec rails webpacker:compile
+export NODE_OPTIONS=--openssl-legacy-provider
+bundle exec rails webpacker:compile
+rails server
+unset NODE_OPTIONS  
+heroku stack:set heroku-20
 
-Install Yarn
-=> for MacOS:
-    brew install yarn
-=> for linux:
-    apt install yarn
-=> for Windows
-    install from https://classic.yarnpkg.com/en/docs/install/#windows-stable
+git init && git add . && git commit -m "init"
+heroku create
+git push heroku main
 
+rails g controller Users 
+rails g controller Sessions 
+rails g controller Crms 
 
-bundle exec rake webpacker:install
-
-rails g controller Users
-rails g controller Sessions
-rails g controller Crms
 rails g model User name:string email:string password:digest
 
-rake db:create
+rake db:create 
 rake db:migrate
 
-#### First Time end
-
-To Run Server:
-
 rails s
+
+git add . && git commit -m "new"
+git push heroku main
+
+
+heroku run rake db:migrate
+
+heroku ps:scale web=1
+

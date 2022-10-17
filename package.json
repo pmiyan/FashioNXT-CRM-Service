@@ -1,5 +1,5 @@
 {
-  "name": "fashion-nxt",
+  "name": "fashio-nxt",
   "private": true,
   "dependencies": {
     "@rails/actioncable": "^6.0.0",
