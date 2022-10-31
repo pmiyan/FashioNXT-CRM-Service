@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount ActiveAnalytics::Engine, at: "analytics"
   get '/' => 'users#index'
   post '/sessions' => 'sessions#create'
   post '/users' => 'users#create'
