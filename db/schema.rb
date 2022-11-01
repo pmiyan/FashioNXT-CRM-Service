@@ -26,6 +26,15 @@ ActiveRecord::Schema.define(version: 2022_10_31_215811) do
     t.index ["site", "page", "date"], name: "index_active_analytics_views_per_days_on_site_and_date"
   end
 
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
+    t.string "manager"
+    t.string "status"
+    t.integer "terms"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
