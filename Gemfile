@@ -15,6 +15,8 @@ group :production do
    gem 'pg'
 end
 
+gem 'active_analytics'
+
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 
