@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_31_215811) do
+ActiveRecord::Schema.define(version: 2022_11_09_014116) do
 
   create_table "active_analytics_views_per_days", force: :cascade do |t|
     t.string "site", null: false
@@ -31,6 +31,13 @@ ActiveRecord::Schema.define(version: 2022_10_31_215811) do
     t.string "manager"
     t.string "status"
     t.integer "terms"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

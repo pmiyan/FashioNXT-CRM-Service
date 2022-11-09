@@ -1,10 +1,70 @@
+<html>
+<head>
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+</head>
+
+<body>
 <p id="notice"><%= notice %></p>
 
 <h1>Companies</h1>
 
-<div class="media">
-  <div class="media-body">
-    <table class="table table-hover">
+<div >
+  <div>
+    <table id="customers">
     <thead>
     <tr>
       <th>Name</th>
@@ -33,9 +93,13 @@
 </div>
 <br>
 
-<h3>Import Companies</h3>
+<div>
+<h3>Import Reports</h3>
 <%= form_tag import_companies_path, multipart: true do %>
   <%= file_field_tag :file %>
-  <%= submit_tag "Upload Companies" %>
+  <%= submit_tag "Upload Reports" %>
 <% end %>
 <%= link_to 'New Company', new_company_path %>
+</div>
+</body>
+</html>
