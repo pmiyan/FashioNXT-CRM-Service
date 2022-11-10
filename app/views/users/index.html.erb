@@ -1,169 +1,127 @@
 <html>
- <head>
-    <title>Login And Registration</title>
- 
-<style>
-@import url(https://fonts.googleapis.com/css?family=Roboto:300);
-.body{
-  background-image: url('https://ordinaryfaith.net/wp-content/uploads/2016/03/Gray-plain-website-background.jpg');
-  background-image: url('17450.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.login-page {
-  width: 360px;
-  padding: 8% 0 0;
-  margin: auto;
-
-}
-.form {
-  position: relative;
-  z-index: 1;
-  background: #48c9b0;
-  max-width: 360px;
-  margin: 0 auto 100px;
-  padding: 45px;
-  text-align: center;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-  
-}
-.form input {
-  font-family: FontAwesome, "Roboto", sans-serif;
-  outline: 0;
-  background: #f2f2f2;
-  width: 100%;
-  border: 0;
-  margin: 0 0 15px;
-  padding: 15px;
-  box-sizing: border-box;
-  font-size: 14px;
-border-radius:10px;
-  
-}
-.form button {
-  font-family: "Titillium Web", sans-serif;
-  font-size: 14px;
-  font-weight: bold;
-  letter-spacing: .1em;
-  outline: 0;
-  background: #17a589;
-  width: 100%;
-  border: 0;
-border-radius:30px;
-  margin: 0px 0px 8px;
-  padding: 15px;
-  color: #FFFFFF;
-  -webkit-transition: all 0.3 ease;
-  transition: all 0.3 ease;
-  cursor: pointer;
-  transition: all 0.2s;
-
-
-}
-.form button:hover,.form button:focus {
-  background: #148f77;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  transform: translateY(-4px);
-}
-.form button:active {
-  transform: translateY(2px);
-  box-shadow: 0 2.5px 5px rgba(0, 0, 0, 0.2);
-}
-
-.form .message {
-  
-  margin: 6px 6px;
-  color: #808080;
-  font-size: 11px;
-  text-align: center;
-  font-weight: bold;
-  font-style: normal;
-
-  
-
-}
-.form .message a {
-  color: #FFFFFF;
-  text-decoration: none;
-  font-size: 13px;
-}
-.form .register-form {
-  display: none;
-}
-.container {
-  position: relative;
-  z-index: 1;
-  max-width: 300px;
-  margin: 0 auto;
-}
-.container:before, .container:after {
-  content: "";
-  display: block;
-  clear: both;
-}
-.container .info {
-  margin: 50px auto;
-  text-align: center;
-}
-.container .info h1 {
-  margin: 0 0 15px;
-  padding: 0;
-  font-size: 36px;
-  font-weight: 300;
-  color: #1a1a1a;
-}
-.container .info span {
-  color: #4d4d4d;
-  font-size: 12px;
-}
-.container .info span a {
-  color: #000000;
-  text-decoration: none;
-}
-.container .info span .fa {
-  color: #EF3B3A;
-}
-body {
-  background: #76b852; /* fallback for old browsers */
-  background: -webkit-linear-gradient(right, #76b852, #8DC26F);
-  background: -moz-linear-gradient(right, #76b852, #8DC26F);
-  background: -o-linear-gradient(right, #76b852, #8DC26F);
-  background: linear-gradient(to left, #76b852, #8DC26F);
-  font-family: "Roboto", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;      
-}
-
-</style>
-
- </head>
- 
-    <h1>
-        Login
-    </h1>
-    <form action="/sessions" method="POST">
-    <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
-    <input type="email" name="login[email]" placeholder="email">
-    <input type="password" name="login[password]" placeholder="password">
-    <input type="submit" name="submit" class="submit">
-    </form>
-
+    <head>
+        <title>Login-Register</title>
+        <!-- Font Awesome -->
+        <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        rel="stylesheet"
+        />
+        <!-- Google Fonts -->
+        <link
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+        rel="stylesheet"
+        />
+        <!-- MDB -->
+        <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.css"
+        rel="stylesheet"
+        />
+        <script
+        type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.js"
+        ></script>
+        
+        
+    </head>
+    <body id="mainbody" style="height: 100vh">
+      
+        <div style="margin-left: 25vw;margin-right:25vw; padding:5vw; background-color:white; opacity: 0.95;">
+        <h2 style="text-align: center; color: #3b71ca"> CRM-SERVICE </h2>
+        <hr/>
+            <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="tab-login" data-mdb-toggle="pill" href="#pills-login" role="tab"
+                aria-controls="pills-login" aria-selected="true">Login</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="tab-register" data-mdb-toggle="pill" href="#pills-register" role="tab"
+                aria-controls="pills-register" aria-selected="false">Register</a>
+            </li>
+            </ul>
     
 
-    <h1>
-        Registration
-    </h1>
-    <form action="/users" method="POST">
-    <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
-    <input type="name" name="user[name]" placeholder="name">
-    <input type="email" name="user[email]" placeholder="email">
-    <input type="password" name="user[password]" placeholder="password">
-    <input type="password" name="user[password_confirmation]" placeholder="password_confirmation">
-    <input type="submit" name="submit" class="submit">
 
-    
-  <body>
-    <%= yield %>
-  </body>
+            <div class="tab-content">
+            <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
+                <form action="/sessions" method="POST">
+                <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                    <input type="email" name = "login[email]" id="registerEmail" class="form-control" />
+                    <label class="form-label" for="registerEmail">Email</label>
+                </div>
+
+                <!-- Password input -->
+                <div class="form-outline mb-4">
+                    <input type="password" name="login[password]" id="loginPassword" class="form-control" />
+                    <label class="form-label" for="login[password]">Password</label>
+                </div>
+
+                <!-- 2 column grid layout -->
+                <div class="row mb-4">
+                    <div class="col-md-6 d-flex justify-content-center">
+                    </div>
+                </div>
+
+                <!-- Submit button -->
+                <%# <input type="submit" name="submit" class="submit"> %>
+                <button type="submit" name="submit" class="btn btn-primary btn-block mb-3">Sign in</button>
+
+                </form>
+            </div>
+            <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
+                <form action="/users" method="POST">
+                <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+ 
+                <!-- Name input -->
+                <div class="form-outline mb-4">
+                    <input type="name" name="user[name]" id="registerName" class="form-control" />
+                    <label class="form-label" for="registerName">Name</label>
+                </div>
+
+            
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                    <input type="email" name="user[email]" id="registerEmail" class="form-control" />
+                    <label class="form-label" for="registerEmail">Email</label>
+                </div>
+
+                <!-- Password input -->
+                <div class="form-outline mb-4">
+                    <input type="password" name="user[password]" id="registerPassword" class="form-control" />
+                    <label class="form-label" for="registerPassword">Password</label>
+                </div>
+
+                <!-- Repeat Password input -->
+                <div class="form-outline mb-4">
+                    <input type="password" name="user[password_confirmation]" id="registerRe-enterPassword" class="form-control" />
+                    <label class="form-label" for="registerRe-enterPassword">Re-enter password</label>
+                </div>
+
+                <!-- Submit button -->
+                <button type="submit" name="submit" class="btn btn-primary btn-block mb-3">Sign in</button>
+                </form>
+            </div>
+            </div>
+        </div>
+    <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+    <script>
+      VANTA.NET({
+        el: "#mainbody",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.00,
+        minWidth: 200.00,
+        scale: 1.00,
+        scaleMobile: 1.00,
+        color: 0x3fffe8,
+        backgroundColor: 0x1e153c,
+        maxDistance: 30.00,
+        spacing: 18.00
+      })
+    </script>
 </html>
