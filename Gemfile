@@ -13,6 +13,8 @@ end
 
 group :production do
    gem 'pg'
+   gem 'wicked_pdf'
+   gem 'wkhtmltopdf-binary'
 end
 
 gem 'active_analytics'
