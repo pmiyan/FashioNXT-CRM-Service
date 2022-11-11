@@ -30,19 +30,29 @@
     box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
                 inset 2px 2px 3px rgba(0, 0, 0, .6);
 }
+body {
+        overflow: auto;
+        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIfQgkvet2bzIAC0hlMopA61o1Ey-_LvZNZg&usqp=CAU");
+    }
+
+    /* div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+} */
+
 </style>
-<h1 style="align-content: center;
-    margin-left: 500px;"> Admin DashBoard </h1>
+<h1 style="text-align: center; color: white"><u>Admin Dashboard</u></h1>
 </head>
 <body>
-<div>
+
 <input class="favorite styled" value ="User Management" type="submit" onClick="myFunction()" style="margin-left: 83px; margin-bottom: 25px;"/>
     <script>
       function myFunction() {
         window.location.href="/admin";
       }
     </script>
-</div>
+
 <div>
 <button class="favorite styled"
         type="button" style="margin-left: 83px; margin-bottom: 25px;" onClick="myForm()">
