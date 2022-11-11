@@ -5,22 +5,26 @@
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
+  background: background: #2e5668;
 }
 
 #customers td, #customers th {
   border: 1px solid #ddd;
   padding: 8px;
+  background: white;
 }
 
 #customers tr:nth-child(even){background-color: #f2f2f2;}
 
-#customers tr:hover {background-color: #ddd;}
+#customers tr:hover { 
+  background-color: #ddd;
+  }
 
 #customers th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #04AA6D;
+  background-color: #2e5668;
   color: white;
 }
 
@@ -36,7 +40,7 @@ input[type=text], select {
 
 input[type=submit] {
   width: 100%;
-  background-color: #4CAF50;
+  background-color: #2e5668;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -46,7 +50,7 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-  background-color: #45a049;
+  background-color: #2e5668;
 }
 
 div {
@@ -54,54 +58,17 @@ div {
   background-color: #f2f2f2;
   padding: 20px;
 }
-
-.styled {
-    border: 0;
-    line-height: 2.5;
-    padding: 0 20px;
-    font-size: 1rem;
-    text-align: center;
-    color: #fff;
-    text-shadow: 1px 1px 1px #000;
-    border-radius: 10px;
-    background-color: rgba(220, 0, 0, 1);
-    background-image: linear-gradient(to top left,
-                                      rgba(0, 0, 0, .2),
-                                      rgba(0, 0, 0, .2) 30%,
-                                      rgba(0, 0, 0, 0));
-    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
-                inset -2px -2px 3px rgba(0, 0, 0, .6);
-}
-
-.styled:hover {
-    background-color: rgba(255, 0, 0, 1);
-}
-
-.styled:active {
-    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
-                inset 2px 2px 3px rgba(0, 0, 0, .6);
-}
+ body {
+        overflow: auto;
+        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIfQgkvet2bzIAC0hlMopA61o1Ey-_LvZNZg&usqp=CAU");
+    }
 </style>
 </head>
 
 <body>
-<h1>Reports</h1>
+<h1 style="text-align: center; color: white"><u>Reports</u></h1>
 
 <div>
-
-<button class="favorite styled"
-        type="button" style="margin-left: 83px; margin-bottom: 25px;" >
-<%= link_to 'New Report', new_post_path %>
-</button>
-
-<button class="favorite styled"
-        type="button" style="margin-left: 83px; margin-bottom: 25px;" >
-<%= link_to "Reports PDF", posts_path(format: :pdf) %>
-<br>
-</button>
-
-</div>
-
 <table id="customers">
   <thead>
     <tr>
@@ -126,5 +93,13 @@ div {
     <% end %>
   </tbody>
 </table>
+</div>
+<br/>
+<div>
+<h3>Import Reports</h3>
+<%= link_to 'New Report', new_post_path %>
+<br/>
+<%= link_to "Reports PDF", posts_path(format: :pdf) %>
+</div>
 </body>
 </html>
