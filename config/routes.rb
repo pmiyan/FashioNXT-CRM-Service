@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   post '/sessions' => 'sessions#create'
   post '/users' => 'users#create'
   get '/dashboard' => 'crms#index'
-  get '/admin' => 'admin#index'
+  get '/admin' => 'admin#userpage'
+  get '/userpage' =>  'admin#userpage'
 get 'logs' => 'logs#index'
 get 'companies' => 'companies#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

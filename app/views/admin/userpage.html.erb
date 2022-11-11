@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>JavaScript example</title>
+		<style media="only screen">
+        .ag-header-container {
+            background: #2e5668;
+        }
+        .ag-header-cell-text{
+            color: black;
+        }
+    html, body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        box-sizing: border-box;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    html {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 0;
+        overflow: auto;
+    }
+
+    body {
+        overflow: auto;
+        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIfQgkvet2bzIAC0hlMopA61o1Ey-_LvZNZg&usqp=CAU");
+    }
+    </style>
+	</head>
+    <body>
+        <h1 style="text-align: center; color: white"><u>User Management</u></h1>
+		<div id="myGrid" class="ag-theme-alpine" style="height: 80vh;margin-left: 5vw;margin-right:5vw; margin-bottom:10vh">
+		</div>
+		<script>var __basePath = './';</script>
+		<script src="//www.ag-grid.com/archive/25.0.0/dev/@ag-grid-community/all-modules/dist/ag-grid-community.js">
+		</script>
+		<script>
+                var filterParams = {
+                comparator: function (filterLocalDateAtMidnight, cellValue) {
+                var dateAsString = cellValue;
+                if (dateAsString == null) return -1;
+                var dateParts = dateAsString.split('/');
+                var cellDate = new Date(
+                Number(dateParts[2]),
+                Number(dateParts[1]) - 1,
+                Number(dateParts[0])
+                );
+
+                if (filterLocalDateAtMidnight.getTime() === cellDate.getTime()) {
+                return 0;
+                }
+
+                if (cellDate < filterLocalDateAtMidnight) {
+                return -1;
+                }
+
+                if (cellDate > filterLocalDateAtMidnight) {
+                return 1;
+                }
+                },
+            browserDatePicker: true,
+             };
+
+            var columnDefs = [
+            { field: 'Customer Name'},
+            { field: 'Contact'},
+            { field: 'Country'},
+            { field: 'Logged In App'},
+            { field: 'Active Time(mins)',filter: 'agNumberColumnFilter'},
+            {
+                field: 'Last Logged In',
+                filter: 'agDateColumnFilter',
+            },
+            ];
+
+            var gridOptions = {
+                columnDefs: columnDefs,
+                defaultColDef: {
+                    flex: 1,
+                    minWidth: 150,
+                    filter: true
+                },
+                onGridReady: (e) => {renderTable(e.api)}
+            };
+            //-------------for alternate rows coloring------------------
+            // gridOptions.getRowStyle = function(params) {
+            //     if (params.node.rowIndex % 2 !== 0) {
+            //         return { background: '#add4e6' };
+            //     }
+            // }
+
+            var gridDiv = document.querySelector('#myGrid');
+            new agGrid.Grid(gridDiv, gridOptions);
+
+            function renderTable(api){
+                let data = [ { "Customer Name":"Alfreds Futterkiste", "Contact":"Maria Anders", "Country":"Germany", "Logged In App":"Event.NXT", "Last Logged In":"<%= Time.now %>", "Active Time(mins)":30 }, 
+                            { "Customer Name":"Berglunds snabbköp", "Contact":"Christina Berglund", "Country":"Sweden", "Logged In App":"Fashion.NXT", "Last Logged In":"<%= Time.now %>", "Active Time(mins)":25 },
+                            { "Customer Name":"Centro comercial Moctezuma", "Contact":"Francisco Chang", "Country":"Mexico", "Logged In App":"Cast.NXT", "Last Logged In":"<%= Time.now %>", "Active Time(mins)":25 },
+                            { "Customer Name":"Ernst Handel", "Contact":"Roland Mendel", "Country":"Austria", "Logged In App":"Event.NXT", "Last Logged In":"<%= Time.now %>", "Active Time(mins)":25 },
+                            { "Customer Name":"Island Trading", "Contact":"Helen Bennett", "Country":"UK", "Logged In App":"Cast.NXT", "Last Logged In":"<%= Time.now %>", "Active Time(mins)":25 },
+                            { "Customer Name":"Königlich Essen", "Contact":"Philip Cramer", "Country":"Germany", "Logged In App":"Fashion.NXT", "Last Logged In":"<%= Time.now %>", "Active Time(mins)":25 } ]
+                api.setRowData(data);
+            }
+
+
+            //----------------Implement this once we get API's from other teams----------------------
+            // document.addEventListener('DOMContentLoaded', function () {
+            // var gridDiv = document.querySelector('#myGrid');
+            // new agGrid.Grid(gridDiv, gridOptions);
+
+            // agGrid
+            //     .simpleHttpRequest({
+            //     url: 'https://www.ag-grid.com/example-assets/olympic-winners.json',
+            //     })
+            //     .then(function (data) {
+            //     gridOptions.api.setRowData(data);
+            // });
+
+		</script>
+	</body>
+</html>
