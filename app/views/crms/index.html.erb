@@ -57,7 +57,12 @@
     Logs
 </button>
 </div>
-
+<div>
+<button class="favorite styled"
+        type="button" style="margin-left: 83px; margin-bottom: 25px;" onClick="myReports()">
+    Upload Reports
+</button>
+</div>
 <div>
 <button class="favorite styled"
         type="button" style="margin-left: 83px; margin-bottom: 25px;" onClick="myPosts()">
@@ -71,10 +76,14 @@ function myForm() {
 
 function myLogs() {
         window.location.href="/logs";
-      }
+}
 
 function myPosts() {
         window.location.href="/posts";
+      }
+
+      function myReports() {
+        window.location.href="/companies";
       }
 
 </script>
