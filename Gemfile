@@ -16,7 +16,7 @@ group :production do
 end
 
 gem 'active_analytics'
-
+gem 'nokogiri', '~> 1.13.9'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 
