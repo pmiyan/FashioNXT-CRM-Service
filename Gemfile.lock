@@ -64,6 +64,10 @@ GEM
       zeitwerk (~> 2.3)
     addressable (2.8.1)
       public_suffix (>= 2.0.2, < 6.0)
+    ahoy_matey (4.1.0)
+      activesupport (>= 5.2)
+      device_detector
+      safely_block (>= 0.2.1)
     bcrypt (3.1.18)
     bindex (0.8.1)
     bootsnap (1.13.0)
@@ -82,6 +86,8 @@ GEM
     childprocess (4.1.0)
     concurrent-ruby (1.1.10)
     crass (1.0.6)
+    device_detector (1.0.7)
+    errbase (0.2.2)
     erubi (1.11.0)
     ffi (1.15.5)
     globalid (1.0.0)
@@ -155,6 +161,8 @@ GEM
     regexp_parser (2.6.0)
     rexml (3.2.5)
     rubyzip (2.3.2)
+    safely_block (0.3.0)
+      errbase (>= 0.1.1)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
@@ -219,6 +227,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_analytics
+  ahoy_matey
   bcrypt (~> 3.1.18)
   bootsnap (>= 1.4.4)
   byebug
@@ -246,4 +255,4 @@ RUBY VERSION
    ruby 3.0.0p0
 
 BUNDLED WITH
-   2.3.23
+   2.3.14
