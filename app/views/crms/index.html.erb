@@ -64,6 +64,13 @@
     Download Reports
 </button>
 </div>
+
+<div>
+<button class="favorite styled"
+        type="button" style="margin-left: 83px; margin-bottom: 25px;" onClick="myMails()">
+    E-mail events
+</button>
+</div>
 <script>
 function myForm() {
         window.location.href="/analytics";
@@ -75,6 +82,10 @@ function myLogs() {
 
 function myPosts() {
         window.location.href="/posts";
+      }
+
+function myMails() {
+        window.location.href="/rails/mailers/event_mailer/event_created.html";
       }
 
 </script>
