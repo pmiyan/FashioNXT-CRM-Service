@@ -4,13 +4,21 @@ class UsersController < ApplicationController
   end
 
   def create
-      user = User.new(user_params)
-      if user.save
-        session[:user_id] = user.id
-        redirect_to '/dashboard'
-      else 
-        flash[:register_errors] = user.errors.full_messages
+      user = User.find_by(email:user_params[:email])
+      if user
+        flash[:login_errors] = 'User already exists. Please Login.'
         redirect_to '/'
+      else
+        user = User.new(user_params)
+        if user.save
+          session[:user_id] = user.id
+          redirect_to '/dashboard'
+        else 
+          flash[:danger] = 'Invalid email/password combination' # Not quite right!
+          render 'new'
+          # flash[:register_errors] = user.errors.full_messages
+          # redirect_to '/'
+        end
       end
   end
 
