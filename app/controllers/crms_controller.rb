@@ -1,7 +1,7 @@
 class CrmsController < ApplicationController
     def index
-        if @current_user.nil?
-            flash[:login_errors] = 'User Not Logged-In. Please Log-In/Register'
+        if !session[:user_id]
+            flash[:login_errors] = 'User Not Logged-In. Please Log-In/Register crmscontr'
             redirect_to '/'
         end
     end

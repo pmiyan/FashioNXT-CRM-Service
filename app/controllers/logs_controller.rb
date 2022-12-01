@@ -1,6 +1,6 @@
 class LogsController < ApplicationController
     def index
-        if @current_user.nil?
+        if !session[:user_id]
             flash[:login_errors] = 'User Not Logged-In. Please Log-In/Register'
             redirect_to '/'
         end
