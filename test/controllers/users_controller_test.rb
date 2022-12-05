@@ -17,4 +17,3 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   #   assert :success
   end
-end
