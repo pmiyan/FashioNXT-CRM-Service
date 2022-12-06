@@ -65,6 +65,7 @@
             browserDatePicker: true,
              };
 
+            //---------For mock data-------------------
             // var columnDefs = [
             // { field: 'Customer Name'},
             // { field: 'Contact'},
@@ -94,17 +95,14 @@
                     minWidth: 150,
                     filter: true
                 },
-                onGridReady: (e) => {renderTable(e.api)}
+                //----------for setting mock data-------------
+                // onGridReady: (e) => {renderTable(e.api)}
             };
-            //-------------for alternate rows coloring------------------
-            // gridOptions.getRowStyle = function(params) {
-            //     if (params.node.rowIndex % 2 !== 0) {
-            //         return { background: '#add4e6' };
-            //     }
-            // }
 
-            var gridDiv = document.querySelector('#myGrid');
-            new agGrid.Grid(gridDiv, gridOptions);
+
+             //----------------Implementation for mock data s----------------------
+            // var gridDiv = document.querySelector('#myGrid');
+            // new agGrid.Grid(gridDiv, gridOptions);
 
             // function renderTable(api){
             //     let data = [ { "Customer Name":"Alfreds Futterkiste", "Contact":"Maria Anders", "Country":"Germany", "Logged In App":"Event.NXT", "Last Logged In":"<%= Time.now %>", "Active Time(mins)":30 }, 
@@ -127,20 +125,10 @@
                 redirect: 'follow'
             };
 
-            fetch("http://54.173.97.35:8080/api", requestOptions)
+            fetch("http://54.89.223.19:8080/api", requestOptions)
             .then(response => response.json())
             .then(result => {console.log(result);gridOptions.api.setRowData(result)})
             .catch(error => console.log('error', error));
-
-            // agGrid
-            //     .simpleHttpRequest({
-            //     url: 'http://54.173.97.35:8080/api',
-
-            //     })
-            //     .then(function (data)
-            //  {
-            //     gridOptions.api.setRowData(data);
-            // });
         })
 		</script>
 	</body>
