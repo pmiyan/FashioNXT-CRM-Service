@@ -11,11 +11,11 @@ class EventMailer < ApplicationMailer
     # @post = params[:post]
     attachments.inline['event.jpg'] = File.read('app/assets/images/event.jpg')
     mail(
-      from: "varshanipreddy@gmail.com",
+      from: "varshacrmtest@gmail.com",
       # to: User.first.email, 
-      to: ["varshanipreddy@gmail.com","jahnavi.r.anugu@gmail.com",],
+      to: ["varshacrmtest@gmail.com","jahnavi.r.anugu@gmail.com",],
       cc: User.all.pluck(:email), 
-      bcc: "varshanipreddy@gmail.com", 
+      bcc: "varshacrmtest@gmail.com", 
       subject: "New Event Created"
     )
   end

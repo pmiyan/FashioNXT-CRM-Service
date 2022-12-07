@@ -2,7 +2,20 @@ require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+  #Action Mailer
 
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.smtp_settings = {
+  address:              'smtp.gmail.com',
+  port:                 587,
+  domain:               'fashionxt-crm-service.herokuapp.com',
+  user_name:            'varshacrmtest@gmail.com',
+  password:             'xvxtqsdtiwhqsfdv',
+  authentication:       'plain',
+  enable_starttls_auto: true,
+  open_timeout:         5,
+  read_timeout:         5 }
+  
   # Code is not reloaded between requests.
   config.cache_classes = true
 
