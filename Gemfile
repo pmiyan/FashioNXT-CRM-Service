@@ -68,11 +68,8 @@ end
 gem "ahoy_matey"
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-<<<<<<< HEAD
 gem 'nokogiri', '~> 1.13.9'
-=======
 
 gem 'net-smtp', require: false
 gem 'net-imap', require: false
 gem 'net-pop', require: false
->>>>>>> ef3d90af2118e0b8adcfcfd0f5fe5bcb3b46c390
