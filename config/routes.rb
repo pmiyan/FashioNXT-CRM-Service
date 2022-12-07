@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   end
   resources :posts
   resources :post
+  resources :users
+  resources :user
   mount ActiveAnalytics::Engine, at: "analytics"
   get '/' => 'users#index'
   #get '/posts' => 'posts#index'
@@ -14,7 +16,7 @@ Rails.application.routes.draw do
   get 'logs' => 'logs#index'
   get 'companies' => 'companies#index'
   get 'logout'  => 'sessions#destroy'
-
+  get '/crmusers' => 'users#usermanage'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get '/home' => 'home#index'
 end
