@@ -65,14 +65,25 @@
             browserDatePicker: true,
              };
 
+            //---------For mock data-------------------
+            // var columnDefs = [
+            // { field: 'Customer Name'},
+            // { field: 'Contact'},
+            // { field: 'Country'},
+            // { field: 'Logged In App'},
+            // { field: 'Active Time(mins)',filter: 'agNumberColumnFilter'},
+            // {
+            //     field: 'Last Logged In',
+            //     filter: 'agDateColumnFilter',
+            // },
+            // ];
+
             var columnDefs = [
-            { field: 'Customer Name'},
-            { field: 'Contact'},
-            { field: 'Country'},
-            { field: 'Logged In App'},
-            { field: 'Active Time(mins)',filter: 'agNumberColumnFilter'},
+            { field: 'name'},
+            { field: 'email'},
+            { field: 'is_valid'},
             {
-                field: 'Last Logged In',
+                field: 'updated_at',
                 filter: 'agDateColumnFilter',
             },
             ];
@@ -84,42 +95,41 @@
                     minWidth: 150,
                     filter: true
                 },
-                onGridReady: (e) => {renderTable(e.api)}
+                //----------for setting mock data-------------
+                // onGridReady: (e) => {renderTable(e.api)}
             };
-            //-------------for alternate rows coloring------------------
-            // gridOptions.getRowStyle = function(params) {
-            //     if (params.node.rowIndex % 2 !== 0) {
-            //         return { background: '#add4e6' };
-            //     }
-            // }
-
-            var gridDiv = document.querySelector('#myGrid');
-            new agGrid.Grid(gridDiv, gridOptions);
-
-            function renderTable(api){
-                let data = [ { "Customer Name":"Alfreds Futterkiste", "Contact":"mariaanders@gmail.com", "Country":"Germany", "Logged In App":"Event.NXT", "Last Logged In":"<%= Time.now %>", "Active Time(mins)":30 }, 
-                            { "Customer Name":"Berglunds snabbköp", "Contact":"christinaberglund@gmail.com", "Country":"Sweden", "Logged In App":"Fashion.NXT", "Last Logged In":"<%= Time.now %>", "Active Time(mins)":25 },
-                            { "Customer Name":"Centro comercial Moctezuma", "Contact":"franciscochang@gmail.com", "Country":"Mexico", "Logged In App":"Cast.NXT", "Last Logged In":"<%= Time.now %>", "Active Time(mins)":25 },
-                            { "Customer Name":"Ernst Handel", "Contact":"rolandmendel@gmail.com", "Country":"Austria", "Logged In App":"Event.NXT", "Last Logged In":"<%= Time.now %>", "Active Time(mins)":25 },
-                            { "Customer Name":"Island Trading", "Contact":"helenbennett@gmail.com", "Country":"UK", "Logged In App":"Cast.NXT", "Last Logged In":"<%= Time.now %>", "Active Time(mins)":25 },
-                            { "Customer Name":"Königlich Essen", "Contact":"philipcramer@gmail.com", "Country":"Germany", "Logged In App":"Fashion.NXT", "Last Logged In":"<%= Time.now %>", "Active Time(mins)":25 } ]
-                api.setRowData(data);
-            }
 
 
-            //----------------Implement this once we get API's from other teams----------------------
-            // document.addEventListener('DOMContentLoaded', function () {
+             //----------------Implementation for mock data s----------------------
             // var gridDiv = document.querySelector('#myGrid');
             // new agGrid.Grid(gridDiv, gridOptions);
 
-            // agGrid
-            //     .simpleHttpRequest({
-            //     url: 'https://www.ag-grid.com/example-assets/olympic-winners.json',
-            //     })
-            //     .then(function (data) {
-            //     gridOptions.api.setRowData(data);
-            // });
+            // function renderTable(api){
+            //     let data = [ { "Customer Name":"Alfreds Futterkiste", "Contact":"Maria Anders", "Country":"Germany", "Logged In App":"Event.NXT", "Last Logged In":"<%= Time.now %>", "Active Time(mins)":30 }, 
+            //                 { "Customer Name":"Berglunds snabbköp", "Contact":"Christina Berglund", "Country":"Sweden", "Logged In App":"Fashion.NXT", "Last Logged In":"<%= Time.now %>", "Active Time(mins)":25 },
+            //                 { "Customer Name":"Centro comercial Moctezuma", "Contact":"Francisco Chang", "Country":"Mexico", "Logged In App":"Cast.NXT", "Last Logged In":"<%= Time.now %>", "Active Time(mins)":25 },
+            //                 { "Customer Name":"Ernst Handel", "Contact":"Roland Mendel", "Country":"Austria", "Logged In App":"Event.NXT", "Last Logged In":"<%= Time.now %>", "Active Time(mins)":25 },
+            //                 { "Customer Name":"Island Trading", "Contact":"Helen Bennett", "Country":"UK", "Logged In App":"Cast.NXT", "Last Logged In":"<%= Time.now %>", "Active Time(mins)":25 },
+            //                 { "Customer Name":"Königlich Essen", "Contact":"Philip Cramer", "Country":"Germany", "Logged In App":"Fashion.NXT", "Last Logged In":"<%= Time.now %>", "Active Time(mins)":25 } ]
+            //     api.setRowData(data);
+            // }
 
+
+            //----------------Implement this once we get API's from other teams----------------------
+            document.addEventListener('DOMContentLoaded', function () {
+            var gridDiv = document.querySelector('#myGrid');
+            new agGrid.Grid(gridDiv, gridOptions);
+            
+            var requestOptions = {
+                method: 'GET',
+                redirect: 'follow'
+            };
+
+            fetch("http://54.89.223.19:8080/api", requestOptions)
+            .then(response => response.json())
+            .then(result => {console.log(result);gridOptions.api.setRowData(result)})
+            .catch(error => console.log('error', error));
+        })
 		</script>
 	</body>
 </html>
