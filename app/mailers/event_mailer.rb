@@ -12,7 +12,8 @@ class EventMailer < ApplicationMailer
     attachments.inline['event.jpg'] = File.read('app/assets/images/event.jpg')
     mail(
       from: "support@crm.com",
-      to: User.first.email, 
+      # to: User.first.email, 
+      to: ["mariaanders@gmail.com","christinaberglund@gmail.com", "franciscochang@gmail.com", "rolandmendel@gmail.com"],
       cc: User.all.pluck(:email), 
       bcc: "secret@crm.com", 
       subject: "New Event Created"

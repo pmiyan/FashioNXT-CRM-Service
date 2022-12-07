@@ -38,6 +38,22 @@
 		<script>var __basePath = './';</script>
 		<script src="https://www.ag-grid.com/archive/25.0.0/dev/@ag-grid-community/all-modules/dist/ag-grid-community.js">
 		</script>
+        
+       <div>
+        <button class="favorite styled"
+        type="button" style="margin-left: 83px; margin-bottom: 25px;" onClick="myForm()">
+        E-mail
+        </button>
+        </div>
+
+        <script>
+        function myForm() {
+            window.location.href="/rails/mailers/event_mailer/event_created.html";
+        }
+        </script>
+
+
+
 		<script>
                 var filterParams = {
                 comparator: function (filterLocalDateAtMidnight, cellValue) {
@@ -97,12 +113,12 @@
             new agGrid.Grid(gridDiv, gridOptions);
 
             function renderTable(api){
-                let data = [ { "Customer Name":"Alfreds Futterkiste", "Contact":"Maria Anders", "Country":"Germany", "Logged In App":"Event.NXT", "Last Logged In":"<%= Time.now %>", "Active Time(mins)":30 }, 
-                            { "Customer Name":"Berglunds snabbköp", "Contact":"Christina Berglund", "Country":"Sweden", "Logged In App":"Fashion.NXT", "Last Logged In":"<%= Time.now %>", "Active Time(mins)":25 },
-                            { "Customer Name":"Centro comercial Moctezuma", "Contact":"Francisco Chang", "Country":"Mexico", "Logged In App":"Cast.NXT", "Last Logged In":"<%= Time.now %>", "Active Time(mins)":25 },
-                            { "Customer Name":"Ernst Handel", "Contact":"Roland Mendel", "Country":"Austria", "Logged In App":"Event.NXT", "Last Logged In":"<%= Time.now %>", "Active Time(mins)":25 },
-                            { "Customer Name":"Island Trading", "Contact":"Helen Bennett", "Country":"UK", "Logged In App":"Cast.NXT", "Last Logged In":"<%= Time.now %>", "Active Time(mins)":25 },
-                            { "Customer Name":"Königlich Essen", "Contact":"Philip Cramer", "Country":"Germany", "Logged In App":"Fashion.NXT", "Last Logged In":"<%= Time.now %>", "Active Time(mins)":25 } ]
+                let data = [ { "Customer Name":"Alfreds Futterkiste", "Contact":"mariaanders@gmail.com", "Country":"Germany", "Logged In App":"Event.NXT", "Last Logged In":"<%= Time.now %>", "Active Time(mins)":30 }, 
+                            { "Customer Name":"Berglunds snabbköp", "Contact":"christinaberglund@gmail.com", "Country":"Sweden", "Logged In App":"Fashion.NXT", "Last Logged In":"<%= Time.now %>", "Active Time(mins)":25 },
+                            { "Customer Name":"Centro comercial Moctezuma", "Contact":"franciscochang@gmail.com", "Country":"Mexico", "Logged In App":"Cast.NXT", "Last Logged In":"<%= Time.now %>", "Active Time(mins)":25 },
+                            { "Customer Name":"Ernst Handel", "Contact":"rolandmendel@gmail.com", "Country":"Austria", "Logged In App":"Event.NXT", "Last Logged In":"<%= Time.now %>", "Active Time(mins)":25 },
+                            { "Customer Name":"Island Trading", "Contact":"helenbennett@gmail.com", "Country":"UK", "Logged In App":"Cast.NXT", "Last Logged In":"<%= Time.now %>", "Active Time(mins)":25 },
+                            { "Customer Name":"Königlich Essen", "Contact":"philipcramer@gmail.com", "Country":"Germany", "Logged In App":"Fashion.NXT", "Last Logged In":"<%= Time.now %>", "Active Time(mins)":25 } ]
                 api.setRowData(data);
             }
 
