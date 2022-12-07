@@ -39,7 +39,7 @@
 		<script src="https://www.ag-grid.com/archive/25.0.0/dev/@ag-grid-community/all-modules/dist/ag-grid-community.js">
 		</script>
 		<script>
-                var filterParams = {
+            var filterParams = {
                 comparator: function (filterLocalDateAtMidnight, cellValue) {
                 var dateAsString = cellValue;
                 if (dateAsString == null) return -1;
@@ -81,7 +81,18 @@
             var columnDefs = [
             { field: 'name'},
             { field: 'email'},
-            { field: 'is_valid'},
+            { 
+                headerName: "Active Status",
+                field: 'is_active',
+                cellStyle: {},
+                cellRenderer: function(params){
+                    // return '<button>'+params.value+'</button>'
+                    if(params.value)
+                        return '<label class="switch"> <input type="checkbox" checked onclick="changeUserStatus(\''+ params.data._id["$oid"] +'\')" > <span class="slider round"></span> </label>'
+                    else
+                        return '<label class="switch"> <input type="checkbox" onclick="changeUserStatus(\''+ params.data._id["$oid"] +'\')" > <span class="slider round"></span> </label>'
+                }
+            },
             {
                 field: 'updated_at',
                 filter: 'agDateColumnFilter',
@@ -114,9 +125,9 @@
             //     api.setRowData(data);
             // }
 
-
-            //----------------Implement this once we get API's from other teams----------------------
-            document.addEventListener('DOMContentLoaded', function () {
+        var apiUrl = "http://44.211.204.233:8080/api"
+        //----------------Implement this once we get API's from other teams----------------------
+        document.addEventListener('DOMContentLoaded', function () {
             var gridDiv = document.querySelector('#myGrid');
             new agGrid.Grid(gridDiv, gridOptions);
             
@@ -125,11 +136,18 @@
                 redirect: 'follow'
             };
 
-            fetch("http://54.89.223.19:8080/api", requestOptions)
+            fetch(apiUrl, requestOptions)
             .then(response => response.json())
-            .then(result => {console.log(result);gridOptions.api.setRowData(result)})
+            .then(result => {gridOptions.api.setRowData(result)})
             .catch(error => console.log('error', error));
         })
+
+        function changeUserStatus(id) {
+            fetch(apiUrl + "/change_status/" + id)
+            .then(response => response.json())
+            // .then(result => console.log(result))
+            .catch(error => console.log('error', error));
+        }
 		</script>
 	</body>
 </html>
