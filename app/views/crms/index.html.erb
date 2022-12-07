@@ -42,9 +42,16 @@ body {
 } */
 
 </style>
-<h1 style="text-align: center; color: white"><u>Admin Dashboard</u></h1>
+
 </head>
 <body>
+
+<h1 style="text-align: center; color: white"><u>Admin Dashboard</u></h1>
+
+<button class="favorite styled" type="button" style="margin-left: 80vw;" onClick="LogOut()">
+    Log Out
+</button>
+<br>
 
 <input class="favorite styled" value ="User Management" type="submit" onClick="myFunction()" style="margin-left: 83px; margin-bottom: 25px;"/>
     <script>
@@ -54,10 +61,10 @@ body {
     </script>
 
 <div>
-<button class="favorite styled"
-        type="button" style="margin-left: 83px; margin-bottom: 25px;" onClick="myForm()">
-    Views Analytics
-</button>
+  <button class="favorite styled"
+          type="button" style="margin-left: 83px; margin-bottom: 25px;" onClick="myForm()">
+      Views Analytics
+  </button>
 </div>
 
 
@@ -86,6 +93,13 @@ body {
     E-mail events
 </button>
 </div>
+        type="button" style="margin-left: 83px; margin-bottom: 25px;" onClick="myCrms()">
+    CRM users
+</button>
+</div>
+
+</div>
+
 <script>
 function myForm() {
         window.location.href="/analytics";
@@ -105,6 +119,14 @@ function myMails() {
         
 function myReports() {
         window.location.href="/companies";
+      }
+
+function LogOut() {
+        window.location.href="/logout"
+}
+
+function myCrms() {
+        window.location.href="/crmusers";
       }
 
 </script>

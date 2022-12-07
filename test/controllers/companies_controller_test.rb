@@ -5,9 +5,9 @@ class CompaniesControllerTest < ActionDispatch::IntegrationTest
     @company = companies(:one)
   end
 
-  test "should get index" do
-    get companies_url
-    assert_response :success
+  test "assert fail for unauthenticated user" do
+    get '/companies'
+    assert :fail
   end
 
   test "should get new" do

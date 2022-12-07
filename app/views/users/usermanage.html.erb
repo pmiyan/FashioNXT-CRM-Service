@@ -1,0 +1,99 @@
+<html>
+<head>
+<style>
+{
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  background: background: #2e5668;
+}
+
+td, th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  background: white;
+}
+
+tr:nth-child(even){background-color: #f2f2f2;}
+
+tr:hover { 
+  background-color: #ddd;
+  }
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center ;
+  background-color: #2e5668;
+  color: white;
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #2e5668;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #2e5668;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+ body {
+        overflow: auto;
+        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIfQgkvet2bzIAC0hlMopA61o1Ey-_LvZNZg&usqp=CAU");
+    }
+</style>
+
+
+</head>
+
+<body>
+<h1 style="text-align: center; color: white"><u>CRM USERS</u></h1>
+
+<div>
+<table id="users" class="display" style="width:100%" >
+  <thead>
+  <tr class="filters">
+      <th>Id</th>
+      <th>User</th>
+      <th>Email</th>
+      <th>created_at</th>
+      <th>updated_at</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% User.all.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.created_at %></td>
+        <td><%= user.updated_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</body>
+</html>

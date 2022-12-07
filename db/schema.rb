@@ -79,7 +79,6 @@ ActiveRecord::Schema.define(version: 2022_11_22_000636) do
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "content"
-    t.datetime "time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
