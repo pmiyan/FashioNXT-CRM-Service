@@ -81,6 +81,34 @@
             var columnDefs = [
             { field: 'name'},
             { field: 'email'},
+            {
+                headerName: "Location",
+                field: 'talentData',
+                cellStyle: {},
+                cellRenderer: function(params){
+                    talentData = params.data.talentData
+                    if(talentData){
+                        talentData = JSON.parse(talentData)
+                        return talentData.city+", "+talentData.state
+                    } else {
+                        return "-"
+                    }
+                }
+            },
+            {
+                headerName: "Payment Link",
+                field: 'Payment Link',
+                cellStyle: {},
+                cellRenderer: function(params){
+                    talentData = params.data.talentData
+                    if(talentData){
+                        talentData = JSON.parse(talentData)
+                        return talentData.paymentLink
+                    } else {
+                        return "-"
+                    }
+                }
+            },
             { 
                 headerName: "Active Status",
                 field: 'is_active',
