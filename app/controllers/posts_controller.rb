@@ -30,6 +30,7 @@ class PostsController < ApplicationController
     def create
       @post = Post.new(post_params)
       if @post.save
+        EventMailer.event_created.deliver_later
         redirect_to @post, notice: "Post was successfully created."
       else
         render :new, status: :unprocessable_entity

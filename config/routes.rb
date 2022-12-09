@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :user
   mount ActiveAnalytics::Engine, at: "analytics"
   get '/' => 'users#index'
-  #get '/posts' => 'posts#index'
+  get '/posts' => 'posts#index'
   post 'sessions' => 'sessions#create'
   post '/users' => 'users#create'
   get '/dashboard' => 'crms#index'

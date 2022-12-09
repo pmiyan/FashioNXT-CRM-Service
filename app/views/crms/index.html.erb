@@ -87,6 +87,12 @@ body {
 </button>
 </div>
 
+<%# <div>
+<button class="favorite styled"
+        type="button" style="margin-left: 83px; margin-bottom: 25px;" onClick="myMails()">
+    E-mail events
+</button>
+</div> %>
 <div>
 <button class="favorite styled"
         type="button" style="margin-left: 83px; margin-bottom: 25px;" onClick="myCrms()">
@@ -109,6 +115,10 @@ function myPosts() {
         window.location.href="/posts";
       }
 
+function myMails() {
+        window.location.href="/rails/mailers/event_mailer/event_created.html";
+}
+        
 function myReports() {
         window.location.href="/companies";
       }

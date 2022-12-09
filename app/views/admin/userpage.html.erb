@@ -38,6 +38,22 @@
 		<script>var __basePath = './';</script>
 		<script src="https://www.ag-grid.com/archive/25.0.0/dev/@ag-grid-community/all-modules/dist/ag-grid-community.js">
 		</script>
+        
+       <div>
+        <button class="favorite styled"
+        type="button" style="margin-left: 83px; margin-bottom: 25px;" onClick="myForm()">
+        E-mail
+        </button>
+        </div>
+
+        <script>
+        function myForm() {
+            window.location.href="/rails/mailers/event_mailer/event_created.html";
+        }
+        </script>
+
+
+
 		<script>
             var filterParams = {
                 comparator: function (filterLocalDateAtMidnight, cellValue) {
