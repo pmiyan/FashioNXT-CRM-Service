@@ -6,3 +6,5 @@ Scenario: Analytics
   Given a valid user
   When I go to the analytics page
   Then I should see "analytics Dashboard"
+
+  
