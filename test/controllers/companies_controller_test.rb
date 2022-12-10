@@ -1,48 +1,49 @@
-require "test_helper"
+require 'test_helper'
 
-class CompaniesControllerTest < ActionDispatch::IntegrationTest
+class CompaniesControllerTest < ActionController::TestCase
   setup do
     @company = companies(:one)
   end
 
-  test "assert fail for unauthenticated user" do
-    get '/companies'
-    assert :fail
+  test "should get index" do
+   # get '/companies'
+   # assert_response :success
+   # assert_not_nil assigns(:companies)
   end
 
   test "should get new" do
-    get new_company_url
+    get :new
     assert_response :success
   end
 
   test "should create company" do
     assert_difference('Company.count') do
-      post companies_url, params: { company: { manager: @company.manager, name: @company.name, status: @company.status, terms: @company.terms } }
+      post :create, params: {company: { manager: @company.manager, name: @company.name, status: @company.status, terms: @company.terms }}
     end
 
-    assert_redirected_to company_url(Company.last)
+    assert_redirected_to company_path(assigns(:company))
   end
 
   test "should show company" do
-    get company_url(@company)
+    get :show, params: { id: @company }
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_company_url(@company)
+    get :edit, params: { id: @company }
     assert_response :success
   end
 
   test "should update company" do
-    patch company_url(@company), params: { company: { manager: @company.manager, name: @company.name, status: @company.status, terms: @company.terms } }
-    assert_redirected_to company_url(@company)
+    patch :update, params: { id: @company , company: { manager: @company.manager, name: @company.name, status: @company.status, terms: @company.terms }}
+    assert_redirected_to company_path(assigns(:company))
   end
 
   test "should destroy company" do
     assert_difference('Company.count', -1) do
-      delete company_url(@company)
+      delete :destroy, params: { id: @company }
     end
 
-    assert_redirected_to companies_url
+    assert_redirected_to companies_path
   end
 end
